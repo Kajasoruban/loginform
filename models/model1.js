@@ -11,4 +11,4 @@ const dataSchema =mongoose.Schema({
     }
 });
 
-module.exports=mongoose.model("datas",dataSchema);
+module.exports=mongoose.model("users",dataSchema);
