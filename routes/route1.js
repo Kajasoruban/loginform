@@ -2,6 +2,7 @@ const express=require("express");
 const router1=express.Router();
 const path=require("path");
 const Model=require("../models/model1");
+const asychandler=require("express-async-handler");
 
 
 router1.get("/login",(req,res)=>{
@@ -10,6 +11,10 @@ router1.get("/login",(req,res)=>{
 
 router1.get("/signup",(req,res)=>{
     res.sendFile("/home/uki01/Desktop/loginform/templates/signup.html");
+});
+
+router1.get("/home",(req,res)=>{
+    res.sendFile("/home/uki01/Desktop/loginform/templates/home.html");
 });
 
 
@@ -35,7 +40,7 @@ router1.post("/login",async(req,res)=>{
         
         if(req.body.password==pass.password){
         
-            res.send(`password match`);
+            res.redirect("home");
         }else{
             res.send("not matched");
         }
