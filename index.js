@@ -19,8 +19,9 @@ database.once("connected",()=>{
 
 const app=express();
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname,"public")))
+app.use(express.urlencoded({extended:false}));
+app.use(express.static("public"))
+
 
 
 
@@ -30,7 +31,10 @@ app.listen(3100,()=>{
 
 
 
-const router1=require("../routes/route1");
+
+const router1=require("./routes/route1");
+
 app.use("/user",router1);
+
 
 
